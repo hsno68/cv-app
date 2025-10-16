@@ -31,7 +31,7 @@
     "singleQuote": false,
     "jsxSingleQuote": false,
     "jsxBracketSameLine": false,
-    "printWidth": 9999,
+    "printWidth": 80,
     "trailingComma": "es5"
   }
 }
