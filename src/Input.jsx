@@ -1,4 +1,11 @@
-export default function Input({ type, id, name, required, onChange, ...attributes }) {
+export default function Input({
+  type,
+  id,
+  name,
+  required,
+  onChange,
+  ...attributes
+}) {
   return (
     <input
       type={type}
