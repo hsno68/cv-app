@@ -1,10 +1,10 @@
 import { useState } from "react";
-import { personalInfoControls } from "./props.js";
+import { contactControls } from "./props.js";
 import FormControl from "./FormControl.jsx";
 
 export default function Form() {
   const [formData, setFormData] = useState(
-    personalInfoControls.reduce((formDataObject, { id }) => {
+    contactControls.reduce((formDataObject, { id }) => {
       formDataObject[id] = "";
       return formDataObject;
     }, {})
@@ -18,9 +18,9 @@ export default function Form() {
     <>
       <p id="form-instructions">An asterisk (*) indicates a required field.</p>
       <form aria-labelledby="form-instructions">
-        <div aria-labelledby="personal-info-heading">
-          <h2 id="personal-info-heading">Personal Information</h2>
-          {personalInfoControls.map(
+        <div aria-labelledby="contact-heading">
+          <h2 id="contact-heading">Contact</h2>
+          {contactControls.map(
             ({ type, label, id, required, ...attributes }, index) => (
               <FormControl
                 key={index}
