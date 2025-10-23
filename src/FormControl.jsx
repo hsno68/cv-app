@@ -2,13 +2,31 @@ import { kebabCase } from "./utility.js";
 import Input from "./Input.jsx";
 import Select from "./Select.jsx";
 
+const inputs = ["text", "tel", "email"];
+
+const inputRenderingTechniques = Object.fromEntries(
+  inputs.map((input) => [
+    input,
+    (props) => {
+      const { options, ...commonProps } = props;
+      return <Input type={input} {...commonProps} />;
+    },
+  ])
+);
+
+const renderingTechniques = {
+  ...inputRenderingTechniques,
+  select: (props) => <Select {...props} />,
+};
+
 export default function FormControl({
   type,
   label,
   id,
+  formData,
   required = false,
-  options = null,
   onChange,
+  options,
   ...attributes
 } = {}) {
   const kebabId = kebabCase(id);
@@ -16,17 +34,13 @@ export default function FormControl({
   const commonProps = {
     id: kebabId,
     name: id,
+    value: formData[id],
     required,
     onChange,
     ...attributes,
   };
 
-  const renderingTechniques = {
-    input: () => <Input type={type} {...commonProps} />,
-    select: () => <Select options={options} {...commonProps} />,
-  };
-
-  const control = renderingTechniques[type]?.();
+  const control = renderingTechniques[type]({ options, ...commonProps });
 
   return (
     <div className="form-control-container">

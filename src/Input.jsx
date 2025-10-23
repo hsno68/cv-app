@@ -2,6 +2,7 @@ export default function Input({
   type,
   id,
   name,
+  value,
   required,
   onChange,
   ...attributes
@@ -11,8 +12,9 @@ export default function Input({
       type={type}
       id={id}
       name={name}
+      value={value}
       required={required}
-      onChange={(e) => onChange(e, name)}
+      onChange={onChange}
       {...attributes}
     />
   );

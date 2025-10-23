@@ -7,7 +7,7 @@ export const contactControls = [
 
 export const educationControls = [
   { type: "text", label: "School", id: "school", required: true },
-  { type: "select", label: "Study", id: "study", required: false },
+  { type: "select", label: "Major", id: "major", required: false },
   { type: "date", label: "Graduation", id: "graduation", required: true },
 ];
 

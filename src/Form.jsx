@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { contactControls } from "./props.js";
-import FormControl from "./FormControl.jsx";
+import { contactControls, majors } from "./props.js";
+import Section from "./Section.jsx";
 
 export default function Form() {
   const [formData, setFormData] = useState(
@@ -10,30 +10,21 @@ export default function Form() {
     }, {})
   );
 
-  function handleChange(e, id) {
-    setFormData({ ...formData, [id]: e.target.value });
+  function handleChange(e) {
+    const { name, value } = e.target;
+    setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
   }
 
   return (
     <>
       <p id="form-instructions">An asterisk (*) indicates a required field.</p>
       <form aria-labelledby="form-instructions">
-        <div aria-labelledby="contact-heading">
-          <h2 id="contact-heading">Contact</h2>
-          {contactControls.map(
-            ({ type, label, id, required, ...attributes }, index) => (
-              <FormControl
-                key={index}
-                type={type}
-                label={label}
-                id={id}
-                required={required}
-                onChange={handleChange}
-                {...attributes}
-              />
-            )
-          )}
-        </div>
+        <Section
+          heading="contact"
+          formControls={contactControls}
+          formData={formData}
+          onChange={handleChange}
+        />
       </form>
     </>
   );
