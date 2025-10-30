@@ -1,14 +1,17 @@
 import { useState } from "react";
-import { contactControls, majors } from "./props.js";
+import { contactControls, educationControls, majors } from "./props.js";
 import Section from "./Section.jsx";
 
+const initialFormData = [...contactControls, ...educationControls].reduce(
+  (formData, { id }) => {
+    formData[id] = "";
+    return formData;
+  },
+  {}
+);
+
 export default function Form() {
-  const [formData, setFormData] = useState(
-    contactControls.reduce((formDataObject, { id }) => {
-      formDataObject[id] = "";
-      return formDataObject;
-    }, {})
-  );
+  const [formData, setFormData] = useState(initialFormData);
 
   function handleChange(e) {
     const { name, value } = e.target;

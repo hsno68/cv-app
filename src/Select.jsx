@@ -5,7 +5,6 @@ export default function Select({
   required,
   onChange,
   options,
-  ...attributes
 }) {
   return (
     <>
@@ -15,7 +14,6 @@ export default function Select({
         value={value}
         required={required}
         onChange={onChange}
-        {...attributes}
       >
         {options.map((option, index) => (
           <option key={index} value={option}>

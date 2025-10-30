@@ -27,7 +27,6 @@ export default function FormControl({
   required = false,
   onChange,
   options,
-  ...attributes
 } = {}) {
   const kebabId = kebabCase(id);
 
@@ -37,7 +36,6 @@ export default function FormControl({
     value: formData[id],
     required,
     onChange,
-    ...attributes,
   };
 
   const control = renderingTechniques[type]({ options, ...commonProps });

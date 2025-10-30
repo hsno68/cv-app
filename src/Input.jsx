@@ -1,12 +1,4 @@
-export default function Input({
-  type,
-  id,
-  name,
-  value,
-  required,
-  onChange,
-  ...attributes
-}) {
+export default function Input({ type, id, name, value, required, onChange }) {
   return (
     <input
       type={type}
@@ -15,7 +7,6 @@ export default function Input({
       value={value}
       required={required}
       onChange={onChange}
-      {...attributes}
     />
   );
 }

@@ -7,24 +7,23 @@ export default function Section({
   onChange,
   options = null,
 }) {
+  const sectionHeading = heading[0].toUpperCase() + heading.slice(1);
+
   return (
     <section aria-labelledby={heading}>
-      <h2 id={heading}>{heading[0].toUpperCase() + heading.slice(1)}</h2>
-      {formControls.map(
-        ({ type, label, id, required, ...attributes }, index) => (
-          <FormControl
-            key={index}
-            type={type}
-            label={label}
-            id={id}
-            formData={formData}
-            required={required}
-            onChange={onChange}
-            options={options}
-            {...attributes}
-          />
-        )
-      )}
+      <h2 id={heading}>{sectionHeading}</h2>
+      {formControls.map(({ type, label, id, required }, index) => (
+        <FormControl
+          key={index}
+          type={type}
+          label={label}
+          id={id}
+          formData={formData}
+          required={required}
+          onChange={onChange}
+          options={options}
+        />
+      ))}
     </section>
   );
 }
