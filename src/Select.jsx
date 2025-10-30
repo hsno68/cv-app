@@ -10,6 +10,9 @@ export default function Select({ id, name, value, required, onChange }) {
         required={required}
         onChange={onChange}
       >
+        <option value="" disabled>
+          Select a major
+        </option>
         {majors.map((major) => (
           <option key={major} value={major}>
             {major}
