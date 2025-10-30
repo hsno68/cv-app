@@ -6,9 +6,9 @@ export default function Section({ heading, formControls, formData, onChange }) {
   return (
     <section aria-labelledby={heading}>
       <h2 id={heading}>{sectionHeading}</h2>
-      {formControls.map(({ type, label, id, required }, index) => (
+      {formControls.map(({ type, label, id, required }) => (
         <FormControl
-          key={index}
+          key={id}
           type={type}
           label={label}
           id={id}
