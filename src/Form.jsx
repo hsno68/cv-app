@@ -15,6 +15,12 @@ const initialFormData = [
   return formData;
 }, {});
 
+const sections = [
+  { heading: "contact", controls: contactControls },
+  { heading: "education", controls: educationControls },
+  { heading: "experience", controls: experienceControls },
+];
+
 export default function Form() {
   const [formData, setFormData] = useState(initialFormData);
 
@@ -27,24 +33,14 @@ export default function Form() {
     <>
       <p id="form-instructions">An asterisk (*) indicates a required field.</p>
       <form aria-labelledby="form-instructions">
-        <Section
-          heading="contact"
-          formControls={contactControls}
-          formData={formData}
-          onChange={handleChange}
-        />
-        <Section
-          heading="education"
-          formControls={educationControls}
-          formData={formData}
-          onChange={handleChange}
-        />
-        <Section
-          heading="experience"
-          formControls={experienceControls}
-          formData={formData}
-          onChange={handleChange}
-        />
+        {sections.map(({ heading, controls }) => (
+          <Section
+            heading={heading}
+            formControls={controls}
+            formData={formData}
+            onChange={handleChange}
+          />
+        ))}
       </form>
     </>
   );
