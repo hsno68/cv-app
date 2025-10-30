@@ -2,7 +2,7 @@ import { kebabCase } from "./utility.js";
 import Input from "./Input.jsx";
 import Select from "./Select.jsx";
 
-const inputs = ["text", "tel", "email"];
+const inputs = ["text", "tel", "email", "date"];
 
 const inputRenderingTechniques = Object.fromEntries(
   inputs.map((input) => [

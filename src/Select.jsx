@@ -21,7 +21,7 @@ export default function Select({
           </option>
         ))}
       </select>
-      <span class="material-symbols-rounded" aria-hidden="true">
+      <span className="material-symbols-rounded" aria-hidden="true">
         arrow_drop_down
       </span>
     </>

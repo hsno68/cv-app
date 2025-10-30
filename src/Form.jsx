@@ -28,6 +28,13 @@ export default function Form() {
           formData={formData}
           onChange={handleChange}
         />
+        <Section
+          heading="education"
+          formControls={educationControls}
+          formData={formData}
+          onChange={handleChange}
+          options={majors}
+        />
       </form>
     </>
   );
