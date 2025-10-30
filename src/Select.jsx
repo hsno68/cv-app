@@ -1,11 +1,6 @@
-export default function Select({
-  id,
-  name,
-  value,
-  required,
-  onChange,
-  options,
-}) {
+import { majors } from "./props.js";
+
+export default function Select({ id, name, value, required, onChange }) {
   return (
     <>
       <select
@@ -15,9 +10,9 @@ export default function Select({
         required={required}
         onChange={onChange}
       >
-        {options.map((option, index) => (
-          <option key={index} value={option}>
-            {option}
+        {majors.map((major) => (
+          <option key={major} value={major}>
+            {major}
           </option>
         ))}
       </select>

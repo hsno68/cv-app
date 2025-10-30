@@ -1,14 +1,19 @@
 import { useState } from "react";
-import { contactControls, educationControls, majors } from "./props.js";
+import {
+  contactControls,
+  educationControls,
+  experienceControls,
+} from "./props.js";
 import Section from "./Section.jsx";
 
-const initialFormData = [...contactControls, ...educationControls].reduce(
-  (formData, { id }) => {
-    formData[id] = "";
-    return formData;
-  },
-  {}
-);
+const initialFormData = [
+  ...contactControls,
+  ...educationControls,
+  ...experienceControls,
+].reduce((formData, { id }) => {
+  formData[id] = "";
+  return formData;
+}, {});
 
 export default function Form() {
   const [formData, setFormData] = useState(initialFormData);
@@ -33,7 +38,12 @@ export default function Form() {
           formControls={educationControls}
           formData={formData}
           onChange={handleChange}
-          options={majors}
+        />
+        <Section
+          heading="experience"
+          formControls={experienceControls}
+          formData={formData}
+          onChange={handleChange}
         />
       </form>
     </>

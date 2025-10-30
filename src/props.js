@@ -11,6 +11,14 @@ export const educationControls = [
   { type: "date", label: "Graduation", id: "graduation", required: true },
 ];
 
+export const experienceControls = [
+  { type: "text", label: "Company", id: "company", required: true },
+  { type: "text", label: "Position", id: "position", required: true },
+  { type: "text", label: "Responsibilities", id: "company", required: false },
+  { type: "date", label: "Start Date", id: "startDate", required: true },
+  { type: "date", label: "End Date", id: "endDate", required: false },
+];
+
 export const majors = [
   "Accounting",
   "Advertising",

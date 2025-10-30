@@ -1,12 +1,6 @@
 import FormControl from "./FormControl.jsx";
 
-export default function Section({
-  heading,
-  formControls,
-  formData,
-  onChange,
-  options = null,
-}) {
+export default function Section({ heading, formControls, formData, onChange }) {
   const sectionHeading = heading[0].toUpperCase() + heading.slice(1);
 
   return (
@@ -21,7 +15,6 @@ export default function Section({
           formData={formData}
           required={required}
           onChange={onChange}
-          options={options}
         />
       ))}
     </section>
