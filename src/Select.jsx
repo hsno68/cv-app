@@ -19,9 +19,6 @@ export default function Select({ id, name, value, required, onChange }) {
           </option>
         ))}
       </select>
-      <span className="material-symbols-rounded" aria-hidden="true">
-        arrow_drop_down
-      </span>
     </>
   );
 }
