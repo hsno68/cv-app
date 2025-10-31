@@ -8,6 +8,7 @@ export default function Form({ formData, onChange }) {
       <form aria-labelledby="form-instructions">
         {sections.map(({ heading, controls }) => (
           <Section
+            key={heading}
             heading={heading}
             formControls={controls}
             formData={formData}
