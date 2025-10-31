@@ -1,15 +1,7 @@
-import { useState } from "react";
-import { initialFormData, sections } from "./config.js";
+import { sections } from "./config.js";
 import Section from "./Section.jsx";
 
-export default function Form() {
-  const [formData, setFormData] = useState(initialFormData);
-
-  function handleChange(e) {
-    const { name, value } = e.target;
-    setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
-  }
-
+export default function Form({ formData, onChange }) {
   return (
     <>
       <p id="form-instructions">An asterisk (*) indicates a required field.</p>
@@ -19,7 +11,7 @@ export default function Form() {
             heading={heading}
             formControls={controls}
             formData={formData}
-            onChange={handleChange}
+            onChange={onChange}
           />
         ))}
       </form>

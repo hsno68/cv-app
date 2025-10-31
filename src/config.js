@@ -19,7 +19,7 @@ const educationControls = [
   { type: "date", label: "Graduation", id: "graduation", required: true },
 ];
 
-// For Form.jsx
+// For App.jsx state
 export const initialFormData = [
   ...contactControls,
   ...experienceControls,
@@ -29,13 +29,14 @@ export const initialFormData = [
   return formData;
 }, {});
 
+// For Form.jsx mapping
 export const sections = [
   { heading: "contact", controls: contactControls },
-  { heading: "education", controls: educationControls },
   { heading: "experience", controls: experienceControls },
+  { heading: "education", controls: educationControls },
 ];
 
-// For Select.jsx
+// For Select.jsx options
 export const majors = [
   "Accounting",
   "Advertising",
