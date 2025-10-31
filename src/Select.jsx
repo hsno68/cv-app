@@ -1,4 +1,4 @@
-import { majors } from "./props.js";
+import { majors } from "./config.js";
 
 export default function Select({ id, name, value, required, onChange }) {
   return (

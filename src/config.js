@@ -1,24 +1,42 @@
-export const contactControls = [
+const contactControls = [
   { type: "text", label: "First Name", id: "firstName", required: true },
   { type: "text", label: "Last Name", id: "lastName", required: true },
   { type: "email", label: "Email", id: "email", required: true },
   { type: "tel", label: "Phone", id: "phone", required: false },
 ];
 
-export const educationControls = [
+const experienceControls = [
+  { type: "text", label: "Company", id: "company", required: true },
+  { type: "text", label: "Position", id: "position", required: true },
+  { type: "text", label: "Responsibilities", id: "duties", required: false },
+  { type: "date", label: "Start Date", id: "startDate", required: true },
+  { type: "date", label: "End Date", id: "endDate", required: false },
+];
+
+const educationControls = [
   { type: "text", label: "School", id: "school", required: true },
   { type: "select", label: "Major", id: "major", required: false },
   { type: "date", label: "Graduation", id: "graduation", required: true },
 ];
 
-export const experienceControls = [
-  { type: "text", label: "Company", id: "company", required: true },
-  { type: "text", label: "Position", id: "position", required: true },
-  { type: "text", label: "Responsibilities", id: "company", required: false },
-  { type: "date", label: "Start Date", id: "startDate", required: true },
-  { type: "date", label: "End Date", id: "endDate", required: false },
+// For Form.jsx
+export const initialFormData = [
+  ...contactControls,
+  ...experienceControls,
+  ...educationControls,
+].reduce((formData, { id }) => {
+  formData[id] = "";
+  return formData;
+}, {});
+
+// For FormSections.jsx
+export const sections = [
+  { heading: "contact", controls: contactControls },
+  { heading: "education", controls: educationControls },
+  { heading: "experience", controls: experienceControls },
 ];
 
+// For Select.jsx
 export const majors = [
   "Accounting",
   "Advertising",

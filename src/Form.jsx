@@ -1,25 +1,6 @@
 import { useState } from "react";
-import {
-  contactControls,
-  educationControls,
-  experienceControls,
-} from "./props.js";
-import Section from "./Section.jsx";
-
-const initialFormData = [
-  ...contactControls,
-  ...educationControls,
-  ...experienceControls,
-].reduce((formData, { id }) => {
-  formData[id] = "";
-  return formData;
-}, {});
-
-const sections = [
-  { heading: "contact", controls: contactControls },
-  { heading: "education", controls: educationControls },
-  { heading: "experience", controls: experienceControls },
-];
+import { initialFormData } from "./config.js";
+import FormSections from "./FormSections.jsx";
 
 export default function Form() {
   const [formData, setFormData] = useState(initialFormData);
@@ -33,14 +14,7 @@ export default function Form() {
     <>
       <p id="form-instructions">An asterisk (*) indicates a required field.</p>
       <form aria-labelledby="form-instructions">
-        {sections.map(({ heading, controls }) => (
-          <Section
-            heading={heading}
-            formControls={controls}
-            formData={formData}
-            onChange={handleChange}
-          />
-        ))}
+        <FormSections formData={formData} onChange={handleChange} />
       </form>
     </>
   );
