@@ -29,7 +29,6 @@ export const initialFormData = [
   return formData;
 }, {});
 
-// For FormSections.jsx
 export const sections = [
   { heading: "contact", controls: contactControls },
   { heading: "education", controls: educationControls },

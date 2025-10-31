@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { initialFormData } from "./config.js";
-import FormSections from "./FormSections.jsx";
+import { initialFormData, sections } from "./config.js";
+import Section from "./Section.jsx";
 
 export default function Form() {
   const [formData, setFormData] = useState(initialFormData);
@@ -14,7 +14,14 @@ export default function Form() {
     <>
       <p id="form-instructions">An asterisk (*) indicates a required field.</p>
       <form aria-labelledby="form-instructions">
-        <FormSections formData={formData} onChange={handleChange} />
+        {sections.map(({ heading, controls }) => (
+          <Section
+            heading={heading}
+            formControls={controls}
+            formData={formData}
+            onChange={handleChange}
+          />
+        ))}
       </form>
     </>
   );
