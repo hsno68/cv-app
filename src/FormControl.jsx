@@ -1,6 +1,7 @@
 import { kebabCase } from "./utility.js";
 import Input from "./Input.jsx";
 import Select from "./Select.jsx";
+import Textarea from "./Textarea.jsx";
 
 const inputs = ["text", "tel", "email", "date"];
 
@@ -11,6 +12,7 @@ const inputRenderingTechniques = Object.fromEntries(
 const renderingTechniques = {
   ...inputRenderingTechniques,
   select: (props) => <Select {...props} />,
+  textarea: (props) => <Textarea {...props} />,
 };
 
 export default function FormControl({

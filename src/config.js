@@ -8,7 +8,12 @@ const contactControls = [
 const experienceControls = [
   { type: "text", label: "Company", id: "company", required: true },
   { type: "text", label: "Position", id: "position", required: true },
-  { type: "text", label: "Responsibilities", id: "duties", required: false },
+  {
+    type: "textarea",
+    label: "Responsibilities",
+    id: "responsibilities",
+    required: false,
+  },
   { type: "date", label: "Start Date", id: "startDate", required: true },
   { type: "date", label: "End Date", id: "endDate", required: false },
 ];
