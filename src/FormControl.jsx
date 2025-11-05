@@ -20,7 +20,7 @@ export default function FormControl({
   formData,
   required,
   onChange,
-} = {}) {
+}) {
   const kebabId = kebabCase(id);
 
   const commonProps = {
